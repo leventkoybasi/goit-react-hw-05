@@ -1,0 +1,19 @@
+/* GLOBAL */
+:global(body) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Amazon Ember', sans-serif;
+}
+:global(#me) {
+  transition: transform 0.3s ease-in-out;
+}
+
+:global(#me):hover {
+  transform: scale(1.3);
+}
+
+:global(a) {
+  color: #f5c518 !important;
+  text-decoration: none !important;
+}
