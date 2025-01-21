@@ -30,7 +30,7 @@ function Carousel() {
                 </div>
 
                 <div
-                  className={`col-md-6 d-flex flex-column justify-content-center text-start gap-5 w-25 ${style.carouselCaption}`}
+                  className={`col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center text-start gap-5 ${style.carouselCaption}`}
                 >
                   <h2>{movie.title}</h2>
                   <p>{movie.overview}</p>
