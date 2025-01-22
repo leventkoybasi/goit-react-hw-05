@@ -1,3 +1,5 @@
+import Theme from './Theme';
+
 function Navbar() {
   return (
     <div className=' py-1'>
@@ -44,14 +46,7 @@ function Navbar() {
                 MOVIES
               </a>
             </div>
-
-            <a
-              className='nav-item nav-link ms-auto d-flex align-self-end justify-content-center'
-              href='#'
-            >
-              <i className='bi bi-brightness-high-fill text-primary fs-4'></i>
-              <i className='bi bi-moon-stars-fill text-primary fs-4'></i>
-            </a>
+            <Theme />
           </div>
         </div>
       </nav>
