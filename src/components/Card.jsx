@@ -34,9 +34,9 @@ function Card() {
                 className='card-body text-white bg-dark rounded-bottom'
                 style={{ height: '3rem', overflow: 'hidden' }}
               >
-                <h5 className='card-title text-truncate' style={{ maxWidth: '100%' }}>
+                <h6 className='card-title text-truncate' style={{ maxWidth: '100%' }}>
                   {movie.title}
-                </h5>
+                </h6>
               </div>
             </div>
           ))
