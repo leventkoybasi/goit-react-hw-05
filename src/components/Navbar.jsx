@@ -1,7 +1,7 @@
-function Header() {
+function Navbar() {
   return (
     <div className=' py-1'>
-      <nav className='navbar navbar-expand-lg navbar-dark bg-black container'>
+      <nav className='navbar navbar-expand-lg navbar-dark container'>
         <a
           className='navbar-brand bg-primary px-2 py-1 text-black rounded'
           style={{ fontWeight: '800' }}
@@ -32,13 +32,22 @@ function Header() {
                 placeholder="Search L'MDb"
                 aria-describedby='button-addon2'
               />
-              <button className='btn btn-white' type='button' id='button-addon2'>
+              <button className='btn btn-primary ' type='button' id='button-addon2'>
                 <i className='bi bi-search'></i>
               </button>
             </div>
+            <div>
+              <a className='btn btn-primary py-1 px-3 rounded fw-bolder' href='#'>
+                MOVIES
+              </a>
+            </div>
 
-            <a className='nav-item nav-link text-white' href='#'>
-              ThemeBtnDuzenle
+            <a
+              className='nav-item nav-link ms-auto d-flex align-self-end justify-content-center'
+              href='#'
+            >
+              <i className='bi bi-brightness-high-fill text-primary fs-4'></i>
+              <i className='bi bi-moon-stars-fill text-primary fs-4'></i>
             </a>
           </div>
         </div>
@@ -47,4 +56,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Navbar;

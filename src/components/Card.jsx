@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchMovies, BASE_URL, ENDPOINTS, IMG_BASE_URL } from '../js/fetchMovies.js';
+import style from './Card.module.css';
 
 function Card() {
   const [movies, setMovies] = useState([]);
@@ -18,15 +19,24 @@ function Card() {
       <div className='d-flex flex-wrap gap-3 align-items-center justify-content-center'>
         {movies.length > 0 ? (
           movies.map((movie) => (
-            <div key={movie.id} className='card bg-black border-0' style={{ width: '18rem' }}>
+            <div
+              key={movie.id}
+              className={`card bg-black border-0 ${style.cardItem}`}
+              style={{ width: '18rem' }}
+            >
               {' '}
               <img
                 src={`${IMG_BASE_URL}/w500${movie.poster_path}`}
-                className='card-img-top'
+                className='card-img-top '
                 alt={movie.title}
               />
-              <div className='card-body text-white bg-dark rounded-bottom'>
-                <h5 className='card-title'>{movie.title}</h5>
+              <div
+                className='card-body text-white bg-dark rounded-bottom'
+                style={{ height: '3rem', overflow: 'hidden' }}
+              >
+                <h5 className='card-title text-truncate' style={{ maxWidth: '100%' }}>
+                  {movie.title}
+                </h5>
               </div>
             </div>
           ))
