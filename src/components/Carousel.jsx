@@ -17,7 +17,7 @@ function Carousel() {
     <div className='container py-2 px-0 ' data-bs-theme='dark'>
       <div id='carouselExampleCaptions' className='carousel slide' data-bs-ride='carousel'>
         <div className='carousel-inner'>
-          {movies.slice(0, 5).map((movie, index) => (
+          {movies.slice(0, 10).map((movie, index) => (
             <div key={movie.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
               <div className='row align-items-center'>
                 <div className='col-md-6'>

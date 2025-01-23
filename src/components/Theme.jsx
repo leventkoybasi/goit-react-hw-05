@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Theme() {
   const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem('theme');
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     document.documentElement.setAttribute('data-bs-theme', newTheme);
+    window.localStorage.setItem('theme', newTheme);
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  }, [theme]);
 
   return (
     <>
