@@ -39,10 +39,7 @@ function Navbar() {
               </button>
             </div>
             <div>
-              <a
-                className='btn btn-outline-primary border-2 text-dark py-1 px-3 rounded fw-bolder'
-                href='#'
-              >
+              <a className='btn btn-outline-primary border-2 py-1 px-3 rounded fw-bolder' href='#'>
                 MOVIES
               </a>
             </div>

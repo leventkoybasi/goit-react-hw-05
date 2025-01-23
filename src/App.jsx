@@ -1,5 +1,6 @@
 // App.jsx
 // import style from './App.module.css';
+
 import CardGallery from './components/CardGallery';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';

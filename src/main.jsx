@@ -1,12 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-//Bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-//Modern Normalize
+// Normalize
 import 'modern-normalize/modern-normalize.css';
-//Import SASS
+// Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Bootstrap JS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons.css';
+// Özelleştirilmiş SASS
 import './custom.scss';
 // Components
 import App from './App.jsx';

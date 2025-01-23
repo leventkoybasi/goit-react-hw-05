@@ -2,12 +2,18 @@ import { useState } from 'react';
 
 function Theme() {
   const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-bs-theme', newTheme);
+  };
+
   return (
     <>
       <button
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        onClick={toggleTheme}
         className='nav-item nav-link ms-auto d-flex align-self-end justify-content-center'
-        href='#'
       >
         {theme === 'light' ? (
           <i className='bi bi-moon-stars-fill text-primary fs-4'></i>
@@ -18,4 +24,5 @@ function Theme() {
     </>
   );
 }
+
 export default Theme;
