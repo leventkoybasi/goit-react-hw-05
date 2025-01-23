@@ -22,7 +22,7 @@ function Card() {
 
   return (
     <>
-      <div className='d-flex flex-wrap gap-3 align-items-center justify-content-center'>
+      <div className='d-flex flex-wrap gap-5 align-item-center justify-content-center'>
         {movies.length > 0 ? (
           movies.map((movie) => (
             <div
