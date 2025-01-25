@@ -43,6 +43,37 @@ function Navbar() {
                 MOVIES
               </a>
             </div>
+            <div className='dropdown ms-3'>
+              <button
+                className='btn btn-primary py-1 px-3 rounded fw-bolder dropdown-toggle'
+                type='button'
+                id='dropdownMenuButton1'
+                data-bs-toggle='dropdown'
+                aria-expanded='false'
+              >
+                OPTIONS
+              </button>
+              <ul
+                className='dropdown-menu dropdown-menu-dark'
+                aria-labelledby='dropdownMenuButton1'
+              >
+                <li>
+                  <a className='dropdown-item' href='#'>
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a className='dropdown-item' href='#'>
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a className='dropdown-item' href='#'>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
             <Theme />
           </div>
         </div>

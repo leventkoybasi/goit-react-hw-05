@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { MainContext, useContext } from '../hooks/Context';
 
 function Theme() {
-  const [theme, setTheme] = useState('dark');
+  const { theme, setTheme, toggleTheme } = useContext(MainContext);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem('theme');
     if (storedTheme) {
       setTheme(storedTheme);
     }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-bs-theme', newTheme);
-    window.localStorage.setItem('theme', newTheme);
-  };
+  }, [setTheme]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-bs-theme', theme);

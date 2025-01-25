@@ -5,16 +5,20 @@ import CardGallery from './components/CardGallery';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { MainProvider } from './hooks/Context';
 
 function App() {
   return (
-    <div className='' data-bs-theme='light'>
-      <Navbar />
-      <Carousel />
-      <CardGallery />
-      <Footer />
-    </div>
+    <MainProvider>
+      <div>
+        <Navbar />
+        <Carousel />
+        <CardGallery />
+        <Footer />
+      </div>
+    </MainProvider>
   );
 }
 
 export default App;
+//data-bs-theme={theme}
