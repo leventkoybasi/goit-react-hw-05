@@ -1,14 +1,11 @@
-import { useContext, createContext, useState } from 'react';
+import { useContext, createContext } from 'react';
+import useTheme from './useTheme';
 
 const MainContext = createContext();
 
 const MainProvider = ({ children }) => {
-  //Theme
-  const [theme, setTheme] = useState('dark');
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
+  //useTheme() ile handle edildi.
+  const { theme, setTheme, toggleTheme } = useTheme();
 
   const data = {
     theme,
