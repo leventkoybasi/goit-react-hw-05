@@ -5,13 +5,14 @@ const CartIcon = () => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleIcon = () => {
+    toast.dismiss();
     setIsActive(!isActive);
   };
   useEffect(() => {
     if (isActive) {
       toast.success("It's a great choice!", {
         position: 'top-right',
-        autoClose: 500,
+        autoClose: 400,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,
