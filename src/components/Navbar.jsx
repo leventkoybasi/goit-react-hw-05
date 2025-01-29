@@ -1,16 +1,17 @@
+import { Link } from 'react-router';
 import Theme from './Theme';
 
 function Navbar() {
   return (
     <div className=' py-1'>
       <nav className='navbar navbar-expand-lg navbar-dark container'>
-        <a
+        <Link
           className='navbar-brand bg-primary px-2 py-1 text-black rounded'
           style={{ fontWeight: '800' }}
-          href='#'
+          to='/'
         >
           {`L'MDb`}
-        </a>
+        </Link>
 
         <button
           className='navbar-toggler'
@@ -39,9 +40,12 @@ function Navbar() {
               </button>
             </div>
             <div>
-              <a className='btn btn-outline-primary border-2 py-1 px-3 rounded fw-bolder' href='#'>
+              <Link
+                className='btn btn-outline-primary border-2 py-1 px-3 rounded fw-bolder'
+                to='/movies'
+              >
                 MOVIES
-              </a>
+              </Link>
             </div>
             <div className='dropdown ms-3'>
               <button
@@ -58,19 +62,19 @@ function Navbar() {
                 aria-labelledby='dropdownMenuButton1'
               >
                 <li>
-                  <a className='dropdown-item' href='#'>
+                  <Link className='dropdown-item' to='/profile'>
                     Profile
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className='dropdown-item' href='#'>
+                  <Link className='dropdown-item' to='/settings'>
                     Settings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className='dropdown-item' href='#'>
+                  <Link className='dropdown-item' href='#'>
                     Logout
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

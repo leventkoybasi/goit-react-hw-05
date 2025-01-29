@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 //VARIABLES ABOUT THE API
+// eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTZhMzBjZTQ5YTc3ODkxODhiNmZhOWJhZDk5NjNhNiIsIm5iZiI6MTczMzUwOTk4Ny41NTYsInN1YiI6IjY3NTM0MzYzYjFlYWE1Yzg5MWRiMDU1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fojrkLbLrhYUKEDhqGX2ZM-oL_h6VfOVBw9s7V05N-w
 const API_KEY = '016a30ce49a7789188b6fa9bad9963a6';
 const BASE_URL = 'https://api.themoviedb.org/3'; //API ANA DIZIN
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p'; //API RESIM ANA DIZIN

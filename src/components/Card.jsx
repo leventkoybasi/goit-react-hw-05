@@ -4,12 +4,12 @@ import style from './Card.module.css';
 import CartIcon from './CartIcon.jsx';
 import Star from './Star.jsx';
 
-function Card() {
+function Card({ endpoint }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMoviesData = async () => {
-      const data = await fetchMovies(BASE_URL, ENDPOINTS.POPULAR_MOVIES);
+      const data = await fetchMovies(BASE_URL, ENDPOINTS[endpoint]);
       const processedMovies = data.results.map((movie) => ({
         ...movie,
         roundedStars: movie.vote_average.toFixed(1),
@@ -18,7 +18,7 @@ function Card() {
     };
 
     fetchMoviesData();
-  }, []);
+  }, [endpoint]);
 
   return (
     <>
