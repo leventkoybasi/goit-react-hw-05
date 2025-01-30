@@ -12,12 +12,12 @@ function Profile() {
                 style={{ width: '150px', height: '150px', objectFit: 'cover' }}
               />
               <div className='card-body text-center'>
-                <h3 className='card-title'>John Doe</h3>
+                <h3 className='card-title'>Levent KOYBASI</h3>
                 <p className='card-text text-muted'>Web Developer</p>
-                <p className='text-muted'>@johndoe</p>
+                <p className='text-muted'>@levent</p>
                 <div className='d-flex justify-content-center my-3'>
                   <a
-                    href='https://twitter.com/johndoe'
+                    href='https://x.com/leventkoybasi'
                     className='btn btn-primary mx-2'
                     target='_blank'
                     rel='noopener noreferrer'
@@ -25,7 +25,7 @@ function Profile() {
                     <i className='bi bi-twitter'></i> Twitter
                   </a>
                   <a
-                    href='https://github.com/johndoe'
+                    href='https://github.com/leventkoybasi'
                     className='btn btn-dark mx-2'
                     target='_blank'
                     rel='noopener noreferrer'

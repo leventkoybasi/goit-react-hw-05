@@ -4,6 +4,8 @@ import style from './Card.module.css';
 import CartIcon from './CartIcon.jsx';
 import Star from './Star.jsx';
 
+import { Link } from 'react-router';
+
 function Card({ endpoint }) {
   const [movies, setMovies] = useState([]);
 
@@ -31,11 +33,13 @@ function Card({ endpoint }) {
               style={{ width: '18rem' }}
             >
               <CartIcon />
-              <img
-                src={`${IMG_BASE_URL}/w500${movie.poster_path}`}
-                className='card-img-top '
-                alt={movie.title}
-              />
+              <Link to={`/movie/${movie.id}`} className='card-img-top'>
+                <img
+                  src={`${IMG_BASE_URL}/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className='card-img-top'
+                />
+              </Link>
               <div
                 className='card-body text-white bg-dark rounded-bottom'
                 style={{ height: '3rem', overflow: 'hidden' }}

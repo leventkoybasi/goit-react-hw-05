@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import Theme from './Theme';
+import Search from './search';
 
 function Navbar() {
   return (
@@ -28,16 +29,7 @@ function Navbar() {
         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
           <div className='d-flex w-100 align-items-center'>
             <div className='input-group flex-grow-1 me-3' style={{ maxWidth: '75%' }}>
-              <input
-                name='search'
-                type='text'
-                className='form-control'
-                placeholder="Search L'MDb"
-                aria-describedby='button-addon2'
-              />
-              <button className='btn btn-primary ' type='button' id='button-addon2'>
-                <i className='bi bi-search'></i>
-              </button>
+              <Search />
             </div>
             <div>
               <Link

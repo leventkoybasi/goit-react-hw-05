@@ -15,6 +15,8 @@ export const ENDPOINTS = {
   UPCOMING_MOVIES: '/movie/upcoming', //API GET UPCOMING
   MOVIE_DETAILS: (movieId) => `/movie/${movieId}`,
   MOVIE_VIDEOS: (movieId) => `/movie/${movieId}/videos`,
+  MOVIE_CREDITS: (movieId) => `/movie/${movieId}/credits`,
+  MOVIE_REVIEWS: (movieId) => `/movie/${movieId}/reviews`,
   SEARCH_MOVIES: '/search/movie',
   GENRE_LIST: '/genre/movie/list',
   IMG_W500: '/w500',

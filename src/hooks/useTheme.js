@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useTheme = () => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));

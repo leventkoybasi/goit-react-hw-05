@@ -12,6 +12,7 @@ function Theme() {
   }, [setTheme]);
 
   useEffect(() => {
+    window.localStorage.setItem('theme', theme);
     document.documentElement.setAttribute('data-bs-theme', theme);
   }, [theme]);
 

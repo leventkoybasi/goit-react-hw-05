@@ -1,4 +1,7 @@
+import { MainContext, useContext } from '../hooks/Context';
+
 function Settings() {
+  const { theme, toggleTheme } = useContext(MainContext);
   return (
     <>
       <div className='container my-5'>
@@ -7,10 +10,10 @@ function Settings() {
           <div className='card-header'>Account Settings</div>
           <div className='card-body'>
             <p>
-              <strong>Username:</strong> johndoe
+              <strong>Username:</strong> lance
             </p>
             <p>
-              <strong>Email:</strong> johndoe@example.com
+              <strong>Email:</strong> leventkoybasi@hotmail.com
             </p>
             <button className='btn btn-primary'>Edit Profile</button>
           </div>
@@ -19,7 +22,13 @@ function Settings() {
           <div className='card-header'>Preferences</div>
           <div className='card-body'>
             <div className='form-check form-switch'>
-              <input className='form-check-input' type='checkbox' id='darkModeToggle' />
+              <input
+                className='form-check-input'
+                type='checkbox'
+                id='darkModeToggle'
+                checked={theme === 'dark'}
+                onClick={toggleTheme}
+              />
               <label className='form-check-label' htmlFor='darkModeToggle'>
                 Dark Mode
               </label>
@@ -44,11 +53,11 @@ function Settings() {
           <div className='card-header'>Language</div>
           <div className='card-body'>
             <select className='form-select'>
+              <option>Turkish</option>
               <option>English</option>
               <option>Spanish</option>
               <option>French</option>
               <option>German</option>
-              <option>Turkish</option>
             </select>
           </div>
         </div>
