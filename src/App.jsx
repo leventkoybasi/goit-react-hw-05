@@ -6,7 +6,7 @@ import { MainProvider } from './hooks/Context';
 import { Route, Routes } from 'react-router';
 import Movies from './pages/Movies';
 import Movie from './pages/Movie';
-import Profile from './pages/Profile';
+import Profile from './pages/profile';
 import Settings from './pages/Settings';
 import Cast from './pages/Cast';
 import Review from './pages/Review';
