@@ -7,12 +7,17 @@ const MainProvider = ({ children }) => {
   //useTheme() ile handle edildi.
   const { theme, setTheme, toggleTheme } = useTheme();
   //
-  // const [movieId, setMovieId] = useState();
+  const [loading, setLoading] = useState(false);
+  const [searchMovies, setSearchMovies] = useState([]);
 
   const data = {
     theme,
     setTheme,
     toggleTheme,
+    loading,
+    setLoading,
+    searchMovies,
+    setSearchMovies,
   };
 
   return <MainContext.Provider value={data}>{children}</MainContext.Provider>;

@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Cast from './pages/Cast';
 import Review from './pages/Review';
+import SearchResult from './pages/SearchResult';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/movies' element={<Movies />} />
+        <Route path='/searchresults' element={<SearchResult />} />
 
         <Route path='/movie/:id/*' element={<Movie />}>
           <Route path='cast' element={<Cast />} />

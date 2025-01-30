@@ -5,7 +5,7 @@ function Cast({ cast }) {
       <hr />
       <ul>
         {cast.length > 0 ? (
-          cast.slice(0, 5).map((actor, index) => (
+          cast.map((actor, index) => (
             <li key={index}>
               {actor.character} : {actor.original_name}
             </li>

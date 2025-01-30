@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import style from './Carousel.module.css';
 import { useState, useEffect } from 'react';
 import { fetchMovies, BASE_URL, ENDPOINTS, IMG_BASE_URL } from '../js/fetchMovies.js';
@@ -13,6 +14,7 @@ function Carousel() {
 
     fetchMoviesData();
   }, []);
+
   return (
     <div className='container py-2 px-0 ' data-bs-theme='dark'>
       <div id='carouselExampleCaptions' className='carousel slide' data-bs-ride='carousel'>
@@ -21,12 +23,14 @@ function Carousel() {
             <div key={movie.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
               <div className='row align-items-center'>
                 <div className='col-md-6'>
-                  <img
-                    src={`${IMG_BASE_URL}/w780${movie.backdrop_path}`}
-                    className='d-block w-100 rounded'
-                    alt='First slide'
-                    style={{ objectFit: 'cover' }}
-                  />
+                  <NavLink to={`/movie/${movie.id}`}>
+                    <img
+                      src={`${IMG_BASE_URL}/w780${movie.backdrop_path}`}
+                      className='d-block w-100 rounded'
+                      alt={movie.title}
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </NavLink>
                 </div>
 
                 <div

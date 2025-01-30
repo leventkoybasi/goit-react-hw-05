@@ -27,12 +27,14 @@ export const ENDPOINTS = {
 
 export async function fetchMovies(baseurl, endpoint, params = {}) {
   try {
+    const query = params.query ? { query: params.query } : {};
     const response = await axios.get(`${baseurl}${endpoint}`, {
       params: {
         api_key: API_KEY,
         language: 'en-US',
         page: 1,
         ...params,
+        ...query,
       },
     });
     return response.data;

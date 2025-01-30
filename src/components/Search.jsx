@@ -1,31 +1,67 @@
+import { useState } from 'react';
+import { fetchMovies, BASE_URL, ENDPOINTS } from '../js/fetchMovies.js';
+import { MainContext, useContext } from '../hooks/Context';
+import { useNavigate } from 'react-router';
+
 function Search() {
-  // const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
+  const { setLoading, setSearchMovies } = useContext(MainContext);
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchMoviesData = async () => {
-  //     const data = await fetchMovies(BASE_URL, ENDPOINTS[endpoint]);
-  //     const processedMovies = data.results.map((movie) => ({
-  //       ...movie,
-  //       roundedStars: movie.vote_average.toFixed(1),
-  //     }));
-  //     setMovies(processedMovies);
-  //   };
+  const fetchMoviesData = async () => {
+    if (!query.trim()) return;
+    setLoading(true);
+    try {
+      const data = await fetchMovies(BASE_URL, ENDPOINTS.SEARCH_MOVIES, { query });
+      if (data && data.results) {
+        const searchedMovie = data.results.map((movie) => ({
+          ...movie,
+          roundedStars: movie.vote_average.toFixed(1),
+        }));
+        setSearchMovies(searchedMovie);
+      } else {
+        setSearchMovies([]);
+      }
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+      setSearchMovies([]);
+    } finally {
+      setLoading(false);
+      navigate('/searchresults');
+    }
+  };
 
-  //   fetchMoviesData();
-  // }, [endpoint]);
+  const handleSearchClick = () => {
+    fetchMoviesData();
+  };
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <>
-      <input
-        name='search'
-        type='text'
-        className='form-control'
-        placeholder="Search L'MDb"
-        aria-describedby='button-addon2'
-      />
-      <button className='btn btn-primary ' type='button' id='button-addon2'>
-        <i className='bi bi-search'></i>
-      </button>
+      <div className='input-group'>
+        <input
+          name='search'
+          type='text'
+          className='form-control'
+          placeholder="Search L'MDb"
+          aria-describedby='button-addon2'
+          value={query}
+          onChange={handleInputChange}
+        />
+        <button
+          className='btn btn-primary'
+          type='button'
+          id='button-addon2'
+          onClick={handleSearchClick}
+        >
+          <i className='bi bi-search'></i>
+        </button>
+      </div>
     </>
   );
 }
+
 export default Search;
