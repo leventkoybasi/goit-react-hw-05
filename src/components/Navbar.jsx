@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import Theme from './Theme';
-import Search from './search';
+import Search from './Search';
 
 function Navbar() {
   return (
