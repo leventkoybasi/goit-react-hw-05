@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchMovies, BASE_URL, ENDPOINTS } from '../js/fetchMovies.js';
 import { MainContext, useContext } from '../hooks/Context';
-import { useNavigate } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 
 function Search() {
   const [query, setQuery] = useState('');
   const { setLoading, setSearchMovies } = useContext(MainContext);
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchMoviesData = async () => {
-    if (!query.trim()) return;
+    const searchQuery = searchParams.get('query') || query;
+    if (!searchQuery.trim()) return;
+
     setLoading(true);
     try {
-      const data = await fetchMovies(BASE_URL, ENDPOINTS.SEARCH_MOVIES, { query });
-      if (data && data.results) {
-        const searchedMovie = data.results.map((movie) => ({
-          ...movie,
-          roundedStars: movie.vote_average.toFixed(1),
-        }));
-        setSearchMovies(searchedMovie);
+      const data = await fetchMovies(BASE_URL, ENDPOINTS.SEARCH_MOVIES, { query: searchQuery });
+      if (data?.results) {
+        setSearchMovies(
+          data.results.map((movie) => ({
+            ...movie,
+            roundedStars: movie.vote_average.toFixed(1),
+          }))
+        );
       } else {
         setSearchMovies([]);
       }
@@ -27,12 +31,24 @@ function Search() {
       setSearchMovies([]);
     } finally {
       setLoading(false);
-      navigate('/searchresults');
     }
   };
 
-  const handleSearchClick = () => {
+  useEffect(() => {
     fetchMoviesData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  const handleSearchClick = async () => {
+    if (!query.trim()) return;
+
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+      newParams.set('query', query);
+      return newParams;
+    });
+    navigate(`/searchresults?query=${query}`);
+    await fetchMoviesData();
   };
 
   const handleInputChange = (e) => {
