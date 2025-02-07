@@ -1,10 +1,13 @@
 import { Link } from 'react-router';
 import Theme from './Theme';
 import Search from './Search';
+import { useState } from 'react';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className=' py-1'>
+    <div className='container py-1'>
       <nav className='navbar navbar-expand-lg navbar-dark container'>
         <Link
           className='navbar-brand bg-primary px-2 py-1 text-black rounded'
@@ -13,21 +16,17 @@ function Navbar() {
         >
           {`L'MDb`}
         </Link>
-
         <button
           className='navbar-toggler'
           type='button'
-          data-toggle='collapse'
-          data-target='#navbarNavAltMarkup'
-          aria-controls='navbarNavAltMarkup'
-          aria-expanded='false'
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen ? 'true' : 'false'}
           aria-label='Toggle navigation'
         >
           <span className='navbar-toggler-icon' />
         </button>
-
-        <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
-          <div className='d-flex w-100 align-items-center'>
+        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id='navbarNavAltMarkup'>
+          <div className='d-flex w-100 align-items-center flex-column flex-lg-row'>
             <div className='input-group flex-grow-1 me-3' style={{ maxWidth: '75%' }}>
               <Search />
             </div>
@@ -64,7 +63,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link className='dropdown-item' href='#'>
+                  <Link className='dropdown-item' to='#'>
                     Logout
                   </Link>
                 </li>

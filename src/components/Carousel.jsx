@@ -16,7 +16,7 @@ function Carousel() {
   }, []);
 
   return (
-    <div className='container py-2 px-0 ' data-bs-theme='dark'>
+    <div className='container py-2 px-md-0 ' data-bs-theme='dark'>
       <div id='carouselExampleCaptions' className='carousel slide' data-bs-ride='carousel'>
         <div className='carousel-inner'>
           {movies.slice(0, 10).map((movie, index) => (
@@ -36,7 +36,9 @@ function Carousel() {
                 <div
                   className={`col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center text-start gap-5 ${style.carouselCaption}`}
                 >
-                  <h2 className='display-6 fw-bolder'>{movie.title}</h2>
+                  <h2 className='display-6 text-center text-md-start mt-2 mt-md-0 fw-bolder'>
+                    {movie.title}
+                  </h2>
                   <p>{movie.overview}</p>
                 </div>
               </div>

@@ -31,6 +31,7 @@ function Search() {
       setSearchMovies([]);
     } finally {
       setLoading(false);
+      setQuery('');
     }
   };
 
@@ -50,6 +51,11 @@ function Search() {
     navigate(`/searchresults?query=${query}`);
     await fetchMoviesData();
   };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchClick();
+    }
+  };
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
@@ -66,6 +72,7 @@ function Search() {
           aria-describedby='button-addon2'
           value={query}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
         <button
           className='btn btn-primary'
